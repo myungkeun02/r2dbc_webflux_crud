@@ -1,6 +1,7 @@
 package org.myungkeun.r2dbc_webflux_postgres_crud.services.impl;
 
 import org.myungkeun.r2dbc_webflux_postgres_crud.dto.CarDto;
+import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 public interface CarService {
@@ -11,4 +12,6 @@ public interface CarService {
     Mono<CarDto> updateCar(Integer carId, CarDto carDto);
 
     Mono<Void> deleteCar(Integer carId);
+
+    Flux<CarDto> getAllCars();
 }

@@ -4,6 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.myungkeun.r2dbc_webflux_postgres_crud.dto.CarDto;
 import org.myungkeun.r2dbc_webflux_postgres_crud.services.impl.CarService;
 import org.springframework.web.bind.annotation.*;
+import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 import java.nio.file.Path;
@@ -32,6 +33,11 @@ public class CarController {
     @DeleteMapping("/{carId}")
     Mono<Void> deleteCar(@PathVariable("carId") Integer carId) {
         return carService.deleteCar(carId);
+    }
+
+    @GetMapping("/all")
+    Flux<CarDto> getAllCars() {
+        return carService.getAllCars();
     }
 
 }
